@@ -485,7 +485,8 @@ var CONFIG={
   eventEndLocal:'20261124T210000',           // calendar end time: NOT in the source document, 3 h placeholder
   title:'Engagement Ceremony of Prabhat & Pornima',
   venue:'Sharao Lawns, Near Tulja Bhawani Temple, MIT, Rambaug Colony, Kothrud, Pune',
-  phone:'919860096658', // number both Call buttons dial (digits with country code, +91 assumed)
+  phone:'919860096658', // number both Call buttons dial (digits with country code, +91 assumed) 
+  phone2:'919130625550', // number both Call buttons dial (digits with country code, +91 assumed)
     photo:'assets/couple.jpg', // couple photo; shows the P&P monogram until this file exists
   musicUrl:'assets/music.mp3' // your audio file; if missing, the built-in instrumental plays
 };
@@ -800,8 +801,11 @@ soundBtn.setAttribute('aria-label','Sound on, tap to turn off');
    RSVP BUTTONS
    ========================================================= */
 (function(){
-  var tel='tel:+'+(CONFIG.phone||'').replace(/\D/g,'');
-  $$('#callBtn,#callBtn2').forEach(function(a){a.href=tel});
+  var tel1='tel:+'+(CONFIG.phone||'').replace(/\D/g,'');
+var tel2='tel:+'+(CONFIG.phone2||'').replace(/\D/g,'');
+
+$('#callBtn').forEach(function(a){a.href=tel1;});
+$('#callBtn2').forEach(function(a){a.href=tel2;});
   $$('.btn').forEach(function(b){
     b.addEventListener('pointerdown',function(e){
       if(RM)return;var r=b.getBoundingClientRect(),s=Math.max(r.width,r.height),sp=document.createElement('span');
